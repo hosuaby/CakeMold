@@ -26,7 +26,7 @@ Person person = CakeMold.of(Person.class)
 ```
 
 ## Why it's awesome
-* Wroten in Java 7
+* Written in Java 7
 * No need to add annotations in your code
 * No need ennoying compile-time code generation
 
