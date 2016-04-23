@@ -3,25 +3,32 @@
 [![Build Status](https://travis-ci.org/hosuaby/CakeMold.svg?branch=master)](https://travis-ci.org/hosuaby/CakeMold)
 [![Coverage Status](https://coveralls.io/repos/github/hosuaby/CakeMold/badge.svg?branch=master)](https://coveralls.io/github/hosuaby/CakeMold?branch=master)
 
-There are already some `Java` libraries to make fluent builders for `POJO`s. But
-they are mostly based on compile-time code generation and ask you to add
-annotations on your domain classes or write interfaces. Sometimes you can not or
-don't want to change your code (or generate it). Or you use third-party library
-and don't have the source. You may want to start write compact and readable
-code immediately, like in the case of tests.
-This library is made specially to help you write readable tests without use of
-`ObjectMother` pattern.
+Easy Java fluent POJO builder.
+
+## Overview
+Builders makes creation of data objects more fluent and pleasant. Use of build
+pattern in tests help to improve readability of test cases.
 
 ## Usecases
 ```java
-/* Instantiate class respecting JavaBean convention */
+/* Build POJO respecting JavaBean convention */
 Person person = CakeMold.of(Person.class)
     .set("firstName", "Bob")
     .set("lastName", "SquarePants")
     .set("email", "sponge.bob@bikinibottom.io")
     .set("age", 22)
+    .set("address", CakeMold.of(Address.class)
+        .set("address1", "ananas house")
+        .set("city", "Bikini Bottom")
+        .set("zipcode", 10101)
+        .cook())
     .cook();
 ```
+
+## Why it's awesome
+* Wroten in Java 7
+* No need to add annotations in your code
+* No need ennoying compile-time code generation
 
 ## Maven
 ```xml
