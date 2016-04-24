@@ -5,6 +5,8 @@
 
 Easy Java fluent POJO builder.
 
+![](logo.png?raw=true)
+
 ## Overview
 Builders makes creation of data objects more fluent and pleasant. Use of build
 pattern in tests help to improve readability of test cases.
