@@ -44,7 +44,7 @@ Person person = CakeMold.of(Person.class)
     <dependency>
         <groupId>io.hosuaby</groupId>
         <artifactId>cakemold</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
         <scope>test</scope>
     </dependency>
     ...

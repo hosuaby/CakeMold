@@ -41,7 +41,18 @@ public class PojoBuilder<T> {
   }
 
   /**
-   * Sets attribute using setter found via reflexion. Returns current builder.
+   * Initializes attributes of POJO via its mutator. Returns current builder for
+   * fluent usage.
+   * <br><br>
+   * Suppose, we have class {@code Titi} with attribute {@code toto} and mutator
+   * for this attribute {@code setToto}. We can set this attribute with
+   * following :
+   * <br>
+   * <pre>
+   * {@code
+   *    Titi titi = CakeMold.of(Titi.class).set("toto", "bla") ...
+   * }
+   * </pre>
    *
    * @param attributeName name of the attribute to set
    * @param value value to set
@@ -70,7 +81,20 @@ public class PojoBuilder<T> {
   }
 
   /**
-   * Returns freshly cooked POJO.
+   * Returns freshly cooked POJO. Call this method at the end of chain of
+   * {@code set} methods.
+   * <br>
+   * Example :
+   * <br>
+   * <pre>
+   * {@code
+   *    MyClass myPojo = CakeMold.of(MyClass.class)
+   *            .set("attribute 1", <value 1>)
+   *            ...
+   *            .set("attribute N", <value N>)
+   *            .cook();
+   * }
+   * </pre>
    *
    * @return created instance
    */
